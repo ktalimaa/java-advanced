@@ -17,7 +17,7 @@ public class Person {
     private String lastName;
     private String email;
     private String phoneNumber;
-    private String address;
+    private String address;     // this is source address of person
 
     //ALL ARGUMENTS CONSTRUCTOR (generate -> constructor; also can call this parameterized constructor)
     public Person(Long id, String firstName, String lastName, String email, String phoneNumber, String address) {
@@ -105,4 +105,6 @@ public class Person {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+
 }
