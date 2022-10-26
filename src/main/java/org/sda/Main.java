@@ -1,9 +1,9 @@
 package org.sda;
 
-import org.sda.model.Dog;
-import org.sda.model.Passenger;
-import org.sda.model.Person;
-import org.sda.model.PrivatePassenger;
+import org.sda.model.*;
+import org.sda.model.homework.Rectangle;
+
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,10 +31,10 @@ public class Main {
         System.out.println(dog.getWeight());
 
         // INHERITANCE
-        Passenger passenger = new Passenger("CARD", "Pärnu");
+        Passenger passenger = new Passenger(PaymentType.CARD, "Pärnu");
         passenger.setEmail("passenger@gmail.com");       // Access Person fields using Passenger object. Also, can extra set email field from here
 
-        PrivatePassenger privatePassenger = new PrivatePassenger("CARD", "Pärnu");
+        PrivatePassenger privatePassenger = new PrivatePassenger(PaymentType.CARD, "Pärnu");
         privatePassenger.setPersonalIDCode("496010119964225");      // Access PrivatePassenger's field
         privatePassenger.setDestinationAddress("Tallinn");          // Access Passenger's field
         privatePassenger.setPhoneNumber("372512345");       // Access Person's field
@@ -51,7 +51,7 @@ public class Main {
 
         // POLYMORPHISM - many instances
         Person person3 = new Person(12345L, "Pärnu");
-        Person person4 = new Passenger("CARD", "Tallinn");
+        Person person4 = new Passenger(PaymentType.CARD, "Tallinn");
         System.out.println(person3.toString());
         System.out.println(person4.toString());
 
@@ -65,9 +65,26 @@ public class Main {
         passenger1.getHiddenAlive();
 
         // Passing parameters
-        Passenger passenger2 = new Passenger(123456L, "Tallinn", "CASH", "Tartu");
+        Passenger passenger2 = new Passenger(123456L, "Tallinn", PaymentType.CASH, "Tartu");
         printPersonAddress(passenger2);
         printPassengerWithPrefix("Passenger: ", passenger2);
+
+        // Composition exercise
+        // Creating Muzzle object -> have to create Dog object also
+        Muzzle muzzle = new Muzzle();
+        muzzle.setId(890L);
+        muzzle.setNoiseRange(10);
+        muzzle.setTooNoisy(true);
+
+        Dog dog1 = new Dog(true, "DOBERMAN");       // generate toString in Muzzle
+        dog1.setMuzzle(muzzle);
+
+        System.out.println(dog1.getMuzzle().toString());       // calls Muzzles toString
+
+        // ENUMS
+        System.out.println(PaymentType.CARD);        // prints enum CARD
+        System.out.println(Arrays.toString(PaymentType.values()));   // will print all the enum values
+        System.out.println(PaymentType.BANK_TRANSFER.getValue());     // prints the value which is set to enums in paymentType class, for example 3
     }
 
     private static void printPersonAddress(Person person) {
