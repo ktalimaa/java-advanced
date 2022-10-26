@@ -60,5 +60,21 @@ public class Main {
         passenger1.setAddress("Tallinn");       // belongs to person class -> person.address
         passenger1.setDestinationAddress("Tartu");      // belongs to passenger class -> Passenger.destinationAddress
         System.out.println(passenger1.getAddresses());
+
+        // Calling parent's hidden field
+        passenger1.getHiddenAlive();
+
+        // Passing parameters
+        Passenger passenger2 = new Passenger(123456L, "Tallinn", "CASH", "Tartu");
+        printPersonAddress(passenger2);
+        printPassengerWithPrefix("Passenger: ", passenger2);
+    }
+
+    private static void printPersonAddress(Person person) {
+        System.out.println(person.getAddress());
+    }
+
+    private static void printPassengerWithPrefix(String prefix, Object object) {
+        System.out.println(prefix + object);
     }
 }

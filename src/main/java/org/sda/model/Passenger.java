@@ -54,4 +54,10 @@ public class Passenger extends Person {
                 ", destinationAddress='" + destinationAddress + '\'' +
                 '}';
     }
+
+    public boolean getHiddenAlive() {
+        return super.isAlive();
+    }
+
+
 }

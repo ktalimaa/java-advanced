@@ -19,6 +19,8 @@ public class Person {
     private String phoneNumber;
     private String address;     // this is source address of person
 
+    protected boolean isAlive;
+
     //ALL ARGUMENTS CONSTRUCTOR (generate -> constructor; also can call this parameterized constructor)
     public Person(Long id, String firstName, String lastName, String email, String phoneNumber, String address) {
         this.id = id;
@@ -92,6 +94,13 @@ public class Person {
         this.address = address;
     }
 
+    protected boolean isAlive() {
+        return isAlive;
+    }
+
+    protected void setAlive(boolean alive) {
+        isAlive = alive;
+    }
 
     // Generates the values of the strings
     @Override
