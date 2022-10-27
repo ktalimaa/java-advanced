@@ -85,6 +85,12 @@ public class Main {
         System.out.println(PaymentType.CARD);        // prints enum CARD
         System.out.println(Arrays.toString(PaymentType.values()));   // will print all the enum values
         System.out.println(PaymentType.BANK_TRANSFER.getValue());     // prints the value which is set to enums in paymentType class, for example 3
+
+        for(PaymentType paymentType: PaymentType.values()) {
+            System.out.println(paymentType.name());     // for loop for enums, always use name() not toString()
+        }
+
+        System.out.println(PaymentType.MOBILE_BANKING.toString());
     }
 
     private static void printPersonAddress(Person person) {
