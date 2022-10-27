@@ -27,7 +27,7 @@ public class Rectangle extends Shape {
 
     @Override
     public float getArea() {
-        return area;
+        return 50;
     }
 
     @Override
@@ -39,3 +39,6 @@ public class Rectangle extends Shape {
         return 50;
     }
 }
+
+
+
