@@ -1,28 +1,17 @@
 package org.sda.model.homework2;
 
-public class Cat {
-
-    private String name;
+public class Cat extends Animal {
 
     private int weight;
 
+    private String name;
+
     private boolean isMale;
 
-    private boolean isFurry;
-
-    public Cat(String name, int weight, boolean isMale, boolean isFurry) {
-        this.name = name;
+    public Cat(int weight, String name, boolean isMale) {
         this.weight = weight;
-        this.isMale = isMale;
-        this.isFurry = isFurry;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
+        this.isMale = isMale;
     }
 
     public int getWeight() {
@@ -33,6 +22,16 @@ public class Cat {
         this.weight = weight;
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public boolean isMale() {
         return isMale;
     }
@@ -41,25 +40,20 @@ public class Cat {
         isMale = male;
     }
 
-    public boolean isFurry() {
-        return isFurry;
+    public Cat(String yieldVoice, String name) {
+        super(yieldVoice, name);
     }
 
-    public void setFurry(boolean furry) {
-        isFurry = furry;
-    }
-
-    public Cat (){
+    public Cat() {
 
     }
 
     @Override
     public String toString() {
         return "Cat{" +
-                "name='" + name + '\'' +
-                ", weight=" + weight +
+                "weight=" + weight +
+                ", name='" + name + '\'' +
                 ", isMale=" + isMale +
-                ", isFurry=" + isFurry +
                 '}';
     }
 }

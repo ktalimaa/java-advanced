@@ -1,36 +1,17 @@
 package org.sda.model.homework2;
 
-public class HomeworkDog {
-
-    private String name;
-
-    private String race;
+public class HomeworkDog extends Animal {
 
     private int age;
 
+    private String name;
+
     private boolean isMale;
 
-    public HomeworkDog(String name, String race, int age, boolean isMale) {
-        this.name = name;
-        this.race = race;
+    public HomeworkDog(int age, String name, boolean isMale) {
         this.age = age;
-        this.isMale = isMale;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
+        this.isMale = isMale;
     }
 
     public int getAge() {
@@ -41,12 +22,26 @@ public class HomeworkDog {
         this.age = age;
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public boolean isMale() {
         return isMale;
     }
 
     public void setMale(boolean male) {
         isMale = male;
+    }
+
+    public HomeworkDog(String yieldVoice, String name) {
+        super(yieldVoice, name);
     }
 
     public HomeworkDog() {
@@ -56,24 +51,9 @@ public class HomeworkDog {
     @Override
     public String toString() {
         return "HomeworkDog{" +
-                "name='" + name + '\'' +
-                ", race='" + race + '\'' +
-                ", age=" + age +
+                "age=" + age +
+                ", name='" + name + '\'' +
                 ", isMale=" + isMale +
                 '}';
     }
-
-
-
-
-    /*
-
-     public Dog(boolean isMale, String race) {
-        this("Chester", 5, isMale, race, 65.5f);
-    }
-
-
-     */
-
-
 }

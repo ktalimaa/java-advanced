@@ -1,5 +1,7 @@
 package org.sda.model.homework2;
 
+import org.sda.model.Dog;
+
 /**
  * Create classes Dog and Cat.
  * a) Move common methods and fields to the class Animal.
@@ -11,20 +13,27 @@ package org.sda.model.homework2;
  */
 public class Animal {
 
-    private String name;
-
-    private int age;
-
-    private boolean isMale;
+    String yieldVoice;
+    String name;
 
     public Animal() {
 
     }
 
-    public Animal(String name, int age, boolean isMale) {
+    // constructor
+    public Animal(String yieldVoice, String name) {
+        this.yieldVoice = yieldVoice;
         this.name = name;
-        this.age = age;
-        this.isMale = isMale;
+    }
+
+    // getters and setters
+
+    public String getYieldVoice() {
+        return yieldVoice;
+    }
+
+    public void setYieldVoice(String yieldVoice) {
+        this.yieldVoice = yieldVoice;
     }
 
     public String getName() {
@@ -35,24 +44,20 @@ public class Animal {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    // toString
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "yieldVoice='" + yieldVoice + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public static Animal[] yieldVoice() {
+        HomeworkDog dog = new HomeworkDog("Woof", "Chester");
+        Cat cat = new Cat("Mjau", "Purr");
+
+        return new Animal[] {dog, cat};
     }
-
-    public boolean isMale() {
-        return isMale;
-    }
-
-    public void setMale(boolean male) {
-        isMale = male;
-    }
-
-    private HomeworkDog homeworkDog;
-    private Cat cat;
-
-
 }
+

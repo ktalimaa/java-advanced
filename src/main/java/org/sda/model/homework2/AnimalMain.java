@@ -1,25 +1,21 @@
 package org.sda.model.homework2;
 
-import org.sda.model.Dog;
-import org.sda.model.Muzzle;
+import java.util.Arrays;
 
 public class AnimalMain {
     public static void main(String[] args) {
+        HomeworkDog dog = new HomeworkDog();
+        dog.setName("Chester");
+        Cat cat = new Cat();
+        cat.setName("Purr");
 
-        HomeworkDog dog = new HomeworkDog("Chester", "Rotveiler", 5, true);
+        Animal[] animals = Animal.yieldVoice();
 
-        Cat cat = new Cat("Purr", 4, true, true);
-
-        Cat catOverride = new Cat();
-        catOverride.setName("Purr");
-        System.out.println(catOverride.getName());
-
-        HomeworkDog dogOverride = new HomeworkDog();
-        dogOverride.setName("Chester");
-        System.out.println(dogOverride.getName());
-
-
-
-
+        for (Animal animal : animals) {
+            Animal.yieldVoice();
+            System.out.println(Arrays.toString(animals));
+        }
+        System.out.println(dog.getName());
+        System.out.println(cat.getName());
     }
 }
