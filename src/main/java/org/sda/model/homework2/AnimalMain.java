@@ -16,8 +16,9 @@ public class AnimalMain {
         for (Animal animal : animals) {
             Animal.yieldVoice();
             System.out.println(Arrays.toString(animals));
+
+            System.out.println(dog.getName() + " " + cat.getName());
+            break;
         }
-        System.out.println(dog.getName());
-        System.out.println(cat.getName());
     }
 }
