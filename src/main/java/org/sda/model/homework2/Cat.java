@@ -8,12 +8,14 @@ public class Cat extends Animal {
 
     private boolean isMale;
 
+    //constructor
     public Cat(int weight, String name, boolean isMale) {
         this.weight = weight;
         this.name = name;
         this.isMale = isMale;
     }
 
+    // getters and setters
     public int getWeight() {
         return weight;
     }

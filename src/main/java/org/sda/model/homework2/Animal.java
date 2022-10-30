@@ -55,7 +55,7 @@ public class Animal {
 
     public static Animal[] yieldVoice() {
         HomeworkDog dog = new HomeworkDog("Woof", "Chester");
-        Cat cat = new Cat("Mjau", "Purr");
+        Cat cat = new Cat("Meow", "Purr");
 
         return new Animal[] {dog, cat};
     }

@@ -8,12 +8,14 @@ public class HomeworkDog extends Animal {
 
     private boolean isMale;
 
+    // constructor
     public HomeworkDog(int age, String name, boolean isMale) {
         this.age = age;
         this.name = name;
         this.isMale = isMale;
     }
 
+    // getters and setters
     public int getAge() {
         return age;
     }

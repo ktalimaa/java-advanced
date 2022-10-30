@@ -4,8 +4,10 @@ import java.util.Arrays;
 
 public class AnimalMain {
     public static void main(String[] args) {
+
         HomeworkDog dog = new HomeworkDog();
         dog.setName("Chester");
+
         Cat cat = new Cat();
         cat.setName("Purr");
 
