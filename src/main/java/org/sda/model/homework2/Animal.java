@@ -54,10 +54,15 @@ public class Animal {
     }
 
     public static Animal[] yieldVoice() {
-        HomeworkDog dog = new HomeworkDog("Woof", "Chester");
-        Cat cat = new Cat("Meow", "Purr");
+        HomeworkDog dog = new HomeworkDog();
+        dog.setName("Chester");
+        dog.setYieldVoice("Woof");
 
-        return new Animal[] {dog, cat};
+        Cat cat = new Cat();
+        cat.setName("Purr");
+        cat.setYieldVoice("Meow");
+
+        return new Animal[]{dog, cat};
     }
 }
 

@@ -53,9 +53,8 @@ public class HomeworkDog extends Animal {
     @Override
     public String toString() {
         return "HomeworkDog{" +
-                "age=" + age +
+                "yieldVoice='" + yieldVoice + '\'' +
                 ", name='" + name + '\'' +
-                ", isMale=" + isMale +
                 '}';
     }
 }

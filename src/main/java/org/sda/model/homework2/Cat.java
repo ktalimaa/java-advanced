@@ -1,7 +1,6 @@
 package org.sda.model.homework2;
 
 public class Cat extends Animal {
-
     private int weight;
 
     private String name;
@@ -53,9 +52,13 @@ public class Cat extends Animal {
     @Override
     public String toString() {
         return "Cat{" +
-                "weight=" + weight +
+                "yieldVoice='" + yieldVoice + '\'' +
                 ", name='" + name + '\'' +
-                ", isMale=" + isMale +
                 '}';
     }
 }
+
+
+
+
+
