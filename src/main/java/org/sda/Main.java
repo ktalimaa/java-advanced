@@ -1,11 +1,14 @@
 package org.sda;
 
+import org.sda.exceptions.PersonNotFoundException;
 import org.sda.models.Person;
 import org.sda.services.PersonService;
 import org.sda.services.implementations.PersonServiceImpl;
 
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PersonNotFoundException {
 
         // INTERFACE
         Person person = new Person();
@@ -37,5 +40,31 @@ public class Main {
             int a = 15;
             System.out.println("Finally executed, a:" + a);
         }
+
+        // Combining multiple exceptions
+        try {
+            int y = 10 / 0; // this line should throw an exception
+        } catch (ArithmeticException | ArrayIndexOutOfBoundsException | NullPointerException e) {
+            System.out.println("The value of y is not determined. Error: " + e.getLocalizedMessage());
+        }
+
+        // Custom / user defined exceptions
+        Person testPerson = null;
+
+        try {           // try block is attempt to make a call
+            testPerson = personService.findPersonByFirstName("Mati");           // if I give correct name from the list(PersonServiceImpl), make toString in person, so it prints all the values with name given in list
+        } catch (PersonNotFoundException e) {
+            System.out.println(e.getLocalizedMessage());
+
+            //alternative code
+            testPerson = new Person();          // create testPerson here to test the exceptions
+            testPerson.setFirstName("Unknown");
+            testPerson.setLastName("Unknown last");
+            testPerson.setAge(10);
+        }
+
+        System.out.println(testPerson.toString());
+
     }
+
 }
