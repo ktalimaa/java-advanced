@@ -5,6 +5,7 @@ import org.sda.models.Person;
 import org.sda.services.PersonService;
 import org.sda.services.implementations.PersonServiceImpl;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -65,6 +66,25 @@ public class Main {
 
         System.out.println(testPerson.toString());
 
+        try {
+            displayNumber();
+        } catch (InputMismatchException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+    private static void displayNumber() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nEnter a value:\n");
+        if (scanner.hasNextInt()) {
+            int i = scanner.nextInt();
+            System.out.println("int -> " + i);
+        } else if (scanner.hasNextDouble()) {
+            double d = scanner.nextDouble();
+            System.out.println("double -> " + d);
+        } else {
+            throw new InputMismatchException("Hey! That's not a value! Try one more time!");
+        }
     }
 
 }

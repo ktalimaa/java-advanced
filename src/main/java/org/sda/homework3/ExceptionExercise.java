@@ -18,71 +18,28 @@ import java.util.Scanner;
  * @author Kristel Talimaa
  */
 public class ExceptionExercise {
+
     public static void main(String[] args) {
-
-        int num = 0;
-
         try {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter a number: ");
-            if (num == scanner.nextInt()) {
-                System.out.println("int -> " + num);
-            } else if (num == scanner.nextDouble()) {
-                System.out.println("int -> " + num);
-            }
+            displayNumber();
         } catch (InputMismatchException e) {
-            System.out.println("Hey! That's not a value! Try one more time!");
+            System.out.println(e.getLocalizedMessage());
         }
+    }
+
+    private static void displayNumber() {
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextInt()) {
+            int i = scanner.nextInt();
+            System.out.println("int -> " + i);
+        } else if (scanner.hasNextDouble()) {
+            double d = scanner.nextDouble();
+            System.out.println("double -> " + d);
+        } else {
+            throw new InputMismatchException("Hey! That's not a value. Try once more!");
+        }
+
     }
 }
-
-
-
-
-  /*
-
- public static void main(String[] args) {
-
-        int num = 0;
-
-        try {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter a number: ");
-            if (num == scanner.nextInt()) {
-                System.out.println("int -> " + num);
-            } else if (num == scanner.nextDouble()) {
-                System.out.println("int -> " + num);
-            }
-        } catch (InputMismatchException e) {
-            System.out.println("Hey! That's not a value! Try one more time!");
-        }
-    }
-
-        or
-
-  try
-
-    {
-        Scanner scanner = new Scanner(System.in);
-        int x = scanner.nextInt();
-        if (!scanner.hasNextInt()) {
-            System.out.println("Output: " + x);
-            scanner.next();
-        } else {
-            scanner.hasNextDouble();
-            System.out.println("Output: " + x);
-            scanner.next();
-        } else{
-        scanner.hasNextLine();
-        System.out.println("Wrong input!");
-        scanner.next();
-    }
-    }
-    } catch(ExceptionNotFound){
-        System.out.println("Hey! That's not a value! Try one more time!");
-        }
-
-
-   */
 
 
