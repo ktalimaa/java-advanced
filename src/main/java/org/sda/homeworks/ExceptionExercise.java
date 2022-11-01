@@ -1,4 +1,4 @@
-package org.sda.homework3;
+package org.sda.homeworks;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
