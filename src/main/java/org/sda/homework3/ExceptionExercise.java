@@ -38,7 +38,6 @@ public class ExceptionExercise {
         } else {
             throw new InputMismatchException("Hey! That's not a value. Try once more!");
         }
-
     }
 }
 
