@@ -18,6 +18,47 @@ import java.util.Scanner;
  * @author Kristel Talimaa
  */
 public class ExceptionExercise {
+    public static void main(String[] args) {
+
+        int num = 0;
+
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter a number: ");
+            if (num == scanner.nextInt()) {
+                System.out.println("int -> " + num);
+            } else if (num == scanner.nextDouble()) {
+                System.out.println("int -> " + num);
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Hey! That's not a value! Try one more time!");
+        }
+    }
+}
+
+
+
+
+  /*
+
+ public static void main(String[] args) {
+
+        int num = 0;
+
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter a number: ");
+            if (num == scanner.nextInt()) {
+                System.out.println("int -> " + num);
+            } else if (num == scanner.nextDouble()) {
+                System.out.println("int -> " + num);
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Hey! That's not a value! Try one more time!");
+        }
+    }
+
+        or
 
   try
 
@@ -40,5 +81,8 @@ public class ExceptionExercise {
     } catch(ExceptionNotFound){
         System.out.println("Hey! That's not a value! Try one more time!");
         }
+
+
+   */
 
 
