@@ -4,9 +4,16 @@ public class Circle extends Shape {
 
     private float perimeter;
 
+    public Circle(float perimeter) {
+        this.perimeter = perimeter;
+    }
+
+
+
     private float area;
 
     public Circle() {
+        super();
         this.perimeter = perimeter;
         this.area = area;
     }
@@ -26,6 +33,11 @@ public class Circle extends Shape {
     }
 
     @Override
+    public void Shape() {
+
+    }
+
+    @Override
     public float getArea() {
         return 30;
     }
@@ -38,4 +50,8 @@ public class Circle extends Shape {
     public float setArea() {
         return 30;
     }
+
+    public void Circle() {
+            }
+
 }

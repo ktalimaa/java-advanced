@@ -7,8 +7,14 @@ public class Rectangle extends Shape {
     private float area;
 
     public Rectangle() {
+        super();
         this.sideLength = sideLength;
         this.area = area;
+    }
+
+    @Override
+    public void Shape() {
+
     }
 
     public Rectangle(float circumference, float area, boolean isRound, float sideLength, float area1) {

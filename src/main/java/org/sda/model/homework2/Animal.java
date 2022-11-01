@@ -11,10 +11,12 @@ import org.sda.model.Dog;
  *
  * @author Kristel Talimaa
  */
-public class Animal {
 
-    String yieldVoice;
-    String name;
+// In Animal class, the yieldVoice and names methods should be abstract.
+public abstract class Animal {
+
+     public String yieldVoice;
+     public String name;
 
     public Animal() {
 
