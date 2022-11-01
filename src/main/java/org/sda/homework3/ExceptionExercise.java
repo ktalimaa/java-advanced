@@ -29,6 +29,7 @@ public class ExceptionExercise {
 
     private static void displayNumber() {
         Scanner scanner = new Scanner(System.in);
+
         if (scanner.hasNextInt()) {
             int i = scanner.nextInt();
             System.out.println("int -> " + i);
