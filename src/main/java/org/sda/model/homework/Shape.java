@@ -65,10 +65,4 @@ public abstract class Shape {
         circle.getPerimeter();
     }
 
-    public Shape(float perimeter) {super(perimeter);}
-
-    public void circle() {
-        System.out.println(super.getPerimeter() + " is the perimeter of circle.";
-    }
-
 }
