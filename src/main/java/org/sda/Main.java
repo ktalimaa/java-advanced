@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class Main {
+
+    @SuppressWarnings("unchecked")        // suppressWarnings - java will not look for warnings when compiling the code // always give parameter inside
+
     public static void main(String[] args) {
 
         // GENERIC TYPE
