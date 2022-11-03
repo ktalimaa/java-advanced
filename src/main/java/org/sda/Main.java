@@ -109,14 +109,20 @@ public class Main {
     private static void displayItems(List<String> shoppingBag) {
         int counter = 1;
 
+        System.out.println("ITEMS: ");
+
         for (int i = 0; i < shoppingBag.size(); i++) {
             String thisItem = shoppingBag.get(i);
-            String nextItem = (i + 1) == (shoppingBag.size() - 1) ? shoppingBag.get(i + 1) : "";     // gets next items
+            String nextItem = (i + 1) <= (shoppingBag.size() - 1) ? shoppingBag.get(i + 1) : "";     // gets next items // i + 1 means it goes to the next item
 
             if (thisItem.startsWith("m") || thisItem.startsWith("M") || nextItem.startsWith("m") || nextItem.startsWith("M")) {
                 System.out.println(counter + ". " + thisItem);
                 counter++;
             }
+        }
+
+        if (counter == 1) {
+            System.out.println("Your shopping bag is empty or doesn't contain the expected items. No items to display!");
         }
     }
 }
