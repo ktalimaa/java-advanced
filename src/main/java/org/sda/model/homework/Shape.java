@@ -1,7 +1,5 @@
 package org.sda.model.homework;
 
-import java.util.concurrent.Callable;
-
 /**
  * Create a Shape class.
  * a) Add fields, create constructor, getters and setters.
@@ -29,6 +27,9 @@ public abstract class Shape {
         this.circumference = circumference;
         this.area = area;
         this.isRound = isRound;
+    }
+
+    public Shape(float perimeter) {
     }
 
     public float getCircumference() {
@@ -64,5 +65,8 @@ public abstract class Shape {
         Circle circle = new Circle();
         circle.getPerimeter();
     }
+
+    public abstract void perimeter();
+    public abstract void area();
 
 }
