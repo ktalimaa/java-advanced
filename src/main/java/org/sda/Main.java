@@ -3,10 +3,7 @@ package org.sda;
 import org.sda.generics.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.SimpleTimeZone;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -73,5 +70,84 @@ public class Main {
         for (String animal : animalList) {
             System.out.println(animal);
         }
+
+        // SET
+        Set<String> countrySet = new HashSet<>();       // same like list // hashset is non-sorted, randomly sorted
+        countrySet.add("Eesti");
+        countrySet.add("Saksamaa");
+        countrySet.add("Poola");
+        countrySet.add("Rootsi");
+        // countrySet.add("Eesti"); -> duplicates not allowed
+
+        // to get set value, use e.g. for loop
+        for(String country: countrySet) {
+            System.out.println(country);
+        }
+
+        System.out.println("Before sorting: " + countrySet);
+        TreeSet<String > countryTreeSet = new TreeSet<>(countrySet);       // Stored as sorted      // converting hasSet to treeSet
+        System.out.println("After sorting: " + countryTreeSet);
+
+
+        // MAP exercise
+        Map<String,String> fullName = new HashMap<>();             // one string for name, another surname      // hashMap is also not sorted
+        fullName.put("Kristel", "Talimaa");                      // same what .add, but in map used .put        // left one is key, right one is value
+        fullName.put("Martin", "Põlluste");
+        fullName.put("Cat", "Purr");
+        fullName.put("Vinod", "John");
+        //fullName.put("Marko", "Ennuste"); -> not possible as one key assign to one value. Duplicate key not allowed
+        System.out.println(fullName);
+
+        System.out.println(fullName.get("Kristel"));        // if you give the key as Kristel, prints value as Talimaa
+        System.out.println(fullName.remove("Vinod"));      // removes the value from the map
+        System.out.println(fullName);
+
+        // Map
+        Map<String, Integer> ageMap = new HashMap<>();
+        ageMap.put("Kristel", 26);
+        ageMap.put("Martin", 27);
+        System.out.println(ageMap);
+
+        // Map of list
+        Map<String, List<String>> friendsMap = new HashMap<>();
+        List<String> kristelFriendList = List.of("Kadri-Ann", "Jana", "Kadi");
+        List<String> martinFriendList = List.of("Tõnis", "Aleks", "Andre");
+        friendsMap.put("Kristel", kristelFriendList);
+        friendsMap.put("Martin", martinFriendList);
+
+        // Map of maps
+        Map<String, Map<String, String>> detailsMap = new HashMap<>();
+        Map<String, String> kristelInfoMap = new HashMap<>();
+        kristelInfoMap.put("age", "26");
+        kristelInfoMap.put("birthplace", "Pärnu");
+        kristelInfoMap.put("residence", "Estonia");
+        kristelInfoMap.put("phone", "12345678");
+        detailsMap.put("Kristel", kristelInfoMap);
+
+
+
+
+        /*
+
+        Map<String, List<String>> friendsMap = new HashMap<>();
+        List<String> kristelFriendList = List.of("Kadri-Ann", "Jana", "Kadi");
+        List<String> martinFriendList = List.of("Tõnis", "Aleks", "Andre");
+        friendsMap.put("Kristel", Arrays.asList("Kadri-Ann", "Jana"));
+        friendsMap.put("Martin", Arrays.asList("Aleks", "Tõnis"));
+        System.out.println(friendsMap);
+
+        Map<String, Map<String, String>> detailsMap = new HashMap<>();
+        Map<String, String> detailsItself = new HashMap<String, String>();
+
+        detailsItself.put("Name", "Kristel");
+        detailsItself.put("ID", "123456789");
+        detailsItself.put("Birth place", "Pärnu");
+
+        detailsMap.put("1", detailsItself);
+        System.out.println("Details: " + detailsItself);
+
+         */
+
+
     }
 }
