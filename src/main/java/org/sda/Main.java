@@ -2,6 +2,7 @@ package org.sda;
 
 import org.sda.generics.*;
 
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -109,7 +110,6 @@ public class Main {
         Map<String, Integer> ageMap = new HashMap<>();
         ageMap.put("Kristel", 26);
         ageMap.put("Martin", 27);
-        System.out.println(ageMap);
 
         // Map of list
         Map<String, List<String>> friendsMap = new HashMap<>();
@@ -126,9 +126,6 @@ public class Main {
         kristelInfoMap.put("residence", "Estonia");
         kristelInfoMap.put("phone", "12345678");
         detailsMap.put("Kristel", kristelInfoMap);
-
-
-
 
         /*
 
@@ -152,5 +149,30 @@ public class Main {
          */
 
 
+        // INPUT & OUTPUT
+        File absoluteFile = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\myText.txt");
+        File relativeFile = new File("myText.txt");
+
+        // File reading
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(absoluteFile));
+            String fileLine;        // to store the line of text from the file
+
+            while ((fileLine = bufferedReader.readLine()) != null){     // reads all the lines in this file
+                System.out.println(fileLine);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // File writing
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(absoluteFile, true));
+            String fileLine = "\n I can write an error-less Java code. :D";
+            bufferedWriter.write(fileLine);
+
+        }  catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
