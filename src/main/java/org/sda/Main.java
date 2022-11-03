@@ -79,9 +79,9 @@ public class Main {
 
             if (!shoppingBag.contains(addItem)) {
                 shoppingBag.add(addItem);
-                System.out.println("'" + addItem + "' added to the bag. Do you want to add more item?");
+                System.out.println("'" + addItem + "' added to the bag. Do you want to add more item? (true/false)");
             } else {
-                System.out.println("The item already exists! Do you want to add another item?");
+                System.out.println("The item already exists! Do you want to add another item? (true/false)");
             }
             isAdd = SCANNER.nextBoolean();
         }
