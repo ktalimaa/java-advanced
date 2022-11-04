@@ -58,8 +58,6 @@ public abstract class Shape {
         isRound = round;
     }
 
-    Circle circle = new Circle();
-
     public static void main(String[] args) {
         
         Circle circle = new Circle();

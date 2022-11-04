@@ -14,7 +14,6 @@ public class Circle extends Shape {
     private float area;
 
     public Circle() {
-        super();
         this.perimeter = perimeter;
         this.area = area;
     }
@@ -62,9 +61,19 @@ public class Circle extends Shape {
         return 30;
     }
 
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "perimeter=" + perimeter +
+                ", area=" + area +
+                '}';
+    }
+
     public void Circle() {
         System.out.println(super.getCircumference() + " is the perimeter of the circle.");
     }
+
+
 
     /*
 

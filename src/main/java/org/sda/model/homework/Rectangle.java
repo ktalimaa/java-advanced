@@ -56,6 +56,14 @@ public class Rectangle extends Shape {
     public float setArea() {
         return 50;
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "area=" + area +
+                ", perimeter=" + perimeter +
+                '}';
+    }
 }
 
 
