@@ -10,13 +10,14 @@ package org.sda.generics.generichomework;
  */
 
 public class Person implements Comparable<Person> {
+    public static void main(String[] args) {
 
-    private int personLength;
+        Length personLength1 = new Length(174);
+        Length personLength2 = new Length(180);
 
-    public Person(int personLength) {
-        this.personLength = personLength;
+        System.out.println("Person 1 is taller than person 2: " + personLength1.isTaller(personLength2));
+
     }
-
 
     @Override
     public int compareTo(Person o) {

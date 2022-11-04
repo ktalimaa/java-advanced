@@ -1,13 +1,27 @@
 package org.sda.generics.generichomework;
 
 /**
- * Length abstract class.
+ * Implementation of Comparable interface
  *
  * @author Kristel Talimaa
  */
 
-public abstract class Length {
+public class Length {
 
-    abstract public float length();
+    private float personLength;
 
+    public Length(float personLength) {
+        this.personLength = personLength;
+    }
+
+    @Override
+    public String toString() {
+        return "Length{" +
+                "personLength=" + personLength +
+                '}';
+    }
+
+    public boolean isTaller(Length personLength2) {
+        return false;
+    }
 }
