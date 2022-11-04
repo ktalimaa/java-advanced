@@ -39,6 +39,11 @@ public class Main {
                 menuOperation(colorList);
                 break;
             case 4:
+                nonSortedList(colorList);
+                sortedList(colorList);
+                menuOperation(colorList);
+                break;
+            case 5:
                 break;
             default:
                 System.out.println("Incorrect option, choose the correct one!");
@@ -52,7 +57,7 @@ public class Main {
         System.out.println("     MENU    ");
         System.out.println("--------------");
 
-        List<String> menu = List.of("Add color", "Delete color", "Display colors", "Exit");
+        List<String> menu = List.of("Add color", "Delete color", "Display colors", "Non-sorted & sorted list", "Exit");
 
         for (int i = 0; i < menu.size(); i++) {      // displays colors
             System.out.println(i + 1 + ". " + menu.get(i));
@@ -84,7 +89,7 @@ public class Main {
     // delete colors
     private static void deleteColor(List<String> colorList) {
         boolean isDelete = true;
-
+        int list = 1;
 
         while (isDelete) {
             System.out.println("Enter a color to be deleted from the list: ");
@@ -93,7 +98,13 @@ public class Main {
             if (colorList.contains(deleteColor)) {
                 colorList.remove(deleteColor);
                 System.out.println("'" + deleteColor + "' deleted from the list. Do you want to delete more colors? (true/false)");
-                System.out.println("COLORS: " + colorList);
+
+                System.out.println("COLORS:");
+
+                for (String updated : colorList) {
+                    System.out.println(list + ". " + updated);
+                    list++;
+                }
             } else {
                 System.out.println("The color does not exists! Do you want to delete another color? (true/false)");
             }
@@ -114,24 +125,32 @@ public class Main {
             counter++;
         }
     }
-}
 
-    /*
+    private static void nonSortedList(List<String> colorList) {
+        int counter = 1;
 
-     //SET
-        Set<String> countrySet = new HashSet<>(); // Non-sorted, randomly stored
-        countrySet.add("Eesti");    // 525632
-        countrySet.add("Saksmaa");  // 152635
-        countrySet.add("Poola");
-        countrySet.add("Rootsi");
-        // countrySet.add("Eesti"); -> Duplicates not allowed!
+        System.out.println("---------------");
+        System.out.println("BEFORE SORTING:");
 
-        for (String country: countrySet) {
-            System.out.println(country);
+        Set<String> nonSortedList = new HashSet<>(colorList);
+
+        for (String nonSorted : nonSortedList) {
+            System.out.println(counter + ". " + nonSorted);
+            counter++;
         }
+    }
 
-        System.out.println("Before sorting: " + countrySet);
-        TreeSet<String> countryTreeSet = new TreeSet<>(countrySet); // Stored as Sorted
-        System.out.println("After sorting: " + countryTreeSet);
+    private static void sortedList(List<String> colorList) {
+        int counter = 1;
 
-     */
+        System.out.println("---------------");
+        System.out.println("AFTER SORTING:");
+
+        TreeSet<String> sortedList = new TreeSet<>(colorList);
+
+        for (String sorted : sortedList) {
+            System.out.println(counter + ". " + sorted);
+            counter++;
+        }
+    }
+}
