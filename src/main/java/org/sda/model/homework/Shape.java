@@ -13,7 +13,7 @@ package org.sda.model.homework;
 
 public abstract class Shape {
 
-    private float circumference;
+    private static float circumference;
 
     private float area;
 
@@ -23,17 +23,15 @@ public abstract class Shape {
 
     }
 
-    public Shape(float circumference, float area, boolean isRound) {
-        this.circumference = circumference;
-        this.area = area;
-        this.isRound = isRound;
-    }
 
     public Shape(float perimeter) {
     }
 
-    public float getCircumference() {
-        return circumference;
+    public Shape(float circumference, float area, boolean isRound) {
+    }
+
+    public static float getCircumference() {
+        return 5.5f;
     }
 
     public void setCircumference(float circumference) {
@@ -42,8 +40,8 @@ public abstract class Shape {
 
     public abstract void Shape();
 
-    public float getArea() {
-        return area;
+    public static float getArea() {
+        return 55.5f;
     }
 
     public void setArea(float area) {
@@ -59,12 +57,13 @@ public abstract class Shape {
     }
 
     public static void main(String[] args) {
-        
+
         Circle circle = new Circle();
         circle.getPerimeter();
     }
 
     public abstract void perimeter();
+
     public abstract void area();
 
 }

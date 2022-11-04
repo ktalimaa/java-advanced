@@ -11,5 +11,4 @@ public class ShapeMain {
         circleOverride.setArea(40);
         System.out.println(circleOverride.getArea());
     }
-
 }

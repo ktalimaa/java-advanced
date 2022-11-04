@@ -14,11 +14,6 @@ public class Rectangle extends Shape {
         this.area = area;
     }
 
-    @Override
-    public void Shape() {
-        System.out.println(super.getArea() + " is the area of the rectangle.");
-    }
-
     public Rectangle(float circumference, float area, boolean isRound, float sideLength, float area1) {
         super(circumference, area, isRound);
         this.sideLength = sideLength;
@@ -33,10 +28,6 @@ public class Rectangle extends Shape {
         this.sideLength = sideLength;
     }
 
-    @Override
-    public float getArea() {
-        return 50;
-    }
 
     @Override
     public void setArea(float area) {
@@ -63,6 +54,16 @@ public class Rectangle extends Shape {
                 "area=" + area +
                 ", perimeter=" + perimeter +
                 '}';
+    }
+
+    @Override
+    public void Shape() {
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getCircumference() + " is the perimeter of the rectangle.");
+        System.out.println(getArea() + " is the area of the rectangle.");
     }
 }
 

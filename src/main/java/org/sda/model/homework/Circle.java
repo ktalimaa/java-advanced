@@ -4,13 +4,6 @@ public class Circle extends Shape {
 
     private float perimeter;
 
-    /*
-     public Circle(float perimeter) {
-        this.perimeter = perimeter;
-    }
-     */
-
-
     private float area;
 
     public Circle() {
@@ -24,22 +17,11 @@ public class Circle extends Shape {
         this.area = area1;
     }
 
-    public float getPerimeter() {
-        return perimeter;
+    public void getPerimeter() {
     }
 
     public void setPerimeter(float perimeter) {
         this.perimeter = perimeter;
-    }
-
-    @Override
-    public void Shape() {
-
-    }
-
-    @Override
-    public float getArea() {
-        return 30;
     }
 
     @Override
@@ -64,32 +46,17 @@ public class Circle extends Shape {
     @Override
     public String toString() {
         return "Circle{" +
-                "perimeter=" + perimeter +
-                ", area=" + area +
+                "area=" + area +
                 '}';
     }
 
-    public void Circle() {
-        System.out.println(super.getCircumference() + " is the perimeter of the circle.");
-    }
-
-
-
-    /*
-
-    public Circle(float perimeter) {
-        super(perimeter);
-    }
     @Override
-    public void perimeter() {
-        System.out.println(super.perimeter() + " is the perimeter of the circle.");
+    public void Shape() {
+
     }
 
-    @Override
-    public void area() {
-        System.out.println(super.area() + " is the area of circle.");
+    public static void main(String[] args) {
+        System.out.println(getCircumference() + " is the perimeter of the circle.");
+        System.out.println(getArea() + " is the area of the circle.");
     }
-
-
-     */
 }
