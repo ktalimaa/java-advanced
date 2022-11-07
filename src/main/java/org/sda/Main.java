@@ -4,11 +4,18 @@ import org.sda.generics.*;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public class Main {
 
-    @SuppressWarnings("unchecked")        // suppressWarnings - java will not look for warnings when compiling the code // always give parameter inside
+    @SuppressWarnings("unchecked")
+    // suppressWarnings - java will not look for warnings when compiling the code // always give parameter inside
 
     public static void main(String[] args) {
 
@@ -84,17 +91,17 @@ public class Main {
         // countrySet.add("Eesti"); -> duplicates not allowed
 
         // to get set value, use e.g. for loop
-        for(String country: countrySet) {
+        for (String country : countrySet) {
             System.out.println(country);
         }
 
         System.out.println("Before sorting: " + countrySet);
-        TreeSet<String > countryTreeSet = new TreeSet<>(countrySet);       // Stored as sorted      // converting hasSet to treeSet
+        TreeSet<String> countryTreeSet = new TreeSet<>(countrySet);       // Stored as sorted      // converting hasSet to treeSet
         System.out.println("After sorting: " + countryTreeSet);
 
 
         // MAP exercise
-        Map<String,String> fullName = new HashMap<>();             // one string for name, another surname      // hashMap is also not sorted
+        Map<String, String> fullName = new HashMap<>();             // one string for name, another surname      // hashMap is also not sorted
         fullName.put("Kristel", "Talimaa");                      // same what .add, but in map used .put        // left one is key, right one is value
         fullName.put("Martin", "Põlluste");
         fullName.put("Cat", "Purr");
@@ -155,10 +162,11 @@ public class Main {
 
         // File reading
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(absoluteFile));
+            FileReader fileReader = new FileReader(absoluteFile);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             String fileLine;        // to store the line of text from the file
 
-            while ((fileLine = bufferedReader.readLine()) != null){     // reads all the lines in this file
+            while ((fileLine = bufferedReader.readLine()) != null) {     // reads all the lines in this file
                 System.out.println(fileLine);
             }
             bufferedReader.close();
@@ -174,8 +182,68 @@ public class Main {
             bufferedWriter.flush();
             bufferedWriter.close();
 
-        }  catch (IOException e) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Serialization - Writing an object to a file
+        String fileName = "file.ser";
+
+        try {
+            FileOutputStream file = new FileOutputStream(fileName);
+            ObjectOutputStream outputStream = new ObjectOutputStream(file);
+
+            outputStream.writeObject(fruit);
+            outputStream.close();       // closing the file
+            file.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        // Deserialization - To get/read an object from a file
+
+        Fruit deserializedFruit = null;
+
+        try {
+            FileInputStream file = new FileInputStream(fileName);
+            ObjectInputStream inputStream = new ObjectInputStream(file);
+
+            deserializedFruit = (Fruit) inputStream.readObject();
+
+            inputStream.close();
+            file.close();
+
+            System.out.println(deserializedFruit.toString());
+
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        // NEW I/O
+
+        Path absolutePath = Paths.get("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\myText.txt");
+        Path relativePath = Paths.get("myText.txt");
+
+        try {
+            // File reading
+            List<String> fileLines = Files.readAllLines(absolutePath, StandardCharsets.UTF_8);     // every line represents different string, which is stored into variable fileLines
+
+            // Just to print a file which was read above
+            for(String fileLine: fileLines) {
+                System.out.println(fileLine);
+            }
+
+            // File writing
+            List<String> fileLinesToWrite = List.of("I love Java", "Estonia is my country!");
+            Files.write(absolutePath, fileLinesToWrite, StandardOpenOption.APPEND);
+
+
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+
 }
