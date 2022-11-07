@@ -161,6 +161,7 @@ public class Main {
             while ((fileLine = bufferedReader.readLine()) != null){     // reads all the lines in this file
                 System.out.println(fileLine);
             }
+            bufferedReader.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -168,8 +169,10 @@ public class Main {
         // File writing
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(absoluteFile, true));
-            String fileLine = "\n I can write an error-less Java code. :D";
+            String fileLine = "\nI can write an error-less Java code. :D";
             bufferedWriter.write(fileLine);
+            bufferedWriter.flush();
+            bufferedWriter.close();
 
         }  catch (IOException e) {
             throw new RuntimeException(e);
