@@ -51,31 +51,20 @@ public class IOHomework {
         }
 
         // Counting special signs
-        File countSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
-        Scanner scanner = new Scanner("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
+        Scanner input = new Scanner(new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt"));
 
+        while (input.hasNextLine()) {
+            String answer = input.nextLine();
+            char specialSign = ',';     // can count dot and spaces also
+            int count = 0;
 
-        try {
-            (Scanner scanner = new Scanner(new FileInputStream(countSigns));
-        } catch (FileNotFoundException e) {
-        }
-
-        int starNumber = 0; // number of *'s
-
-        while (scanner.hasNext()) {
-            String character = scanner.next();
-            int index = 0;
-            char star = ',';
-            while (index < character.length()) {
-
-                if (character.charAt(index) == star) {
-                    starNumber++;
+            for (int i = 0; i < answer.length(); i++) {
+                if (answer.charAt(i) == specialSign) {
+                    count++;
                 }
-                index++;
             }
-            System.out.println(starNumber);
+            System.out.println("The sum of ', ' is: " + count);
         }
-
 
         // One word occurrence
         String word = "Java";
@@ -96,31 +85,7 @@ public class IOHomework {
     }
 }
 
-/*
 
 
-File countSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
 
-        Scanner scanner = new Scanner(new FileInputStream(countSigns));
-
-        try {
-            scanner = new Scanner(new File(countSigns.toURI()));
-        } catch (FileNotFoundException e) {
-        }
-
-        while (scanner.hasNext()) {
-            String character = scanner.next();
-            int comaNumber = 0;
-            char star = ',';
-            while (comaNumber < character.length()) {
-
-                if (character.charAt(comaNumber) == star) {
-                    comaNumber++;
-                }
-                comaNumber++;
-            }
-            System.out.println("Number of ', ' in the file is: " + comaNumber);
-        }
-
- */
 
