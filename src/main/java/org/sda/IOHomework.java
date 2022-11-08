@@ -50,7 +50,43 @@ public class IOHomework {
         }
 
         // Counting special signs
-        File countSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
+        int countSigns = 0;
+        char character;
+
+        File fileSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
+        Scanner inputFile = new Scanner(fileSigns);
+
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please enter a character you want to count: ");
+        character = keyboard.nextLine().charAt(0);
+
+
+
+
+
+
+        // One word occurrence
+        String word = "Java";
+        int wordOccurrence = 0;
+        int totalCount = 0;
+
+        File file = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
+
+        Scanner sc = new Scanner(file);
+
+        while (sc.hasNext()) {
+            totalCount++;
+            if (sc.next().equals(word)) {
+                wordOccurrence++;
+            }
+        }
+        System.out.println("Word count: " + wordOccurrence);
+    }
+}
+
+/*
+
+File countSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
 
         Scanner scanner = new Scanner(new FileInputStream(countSigns));
 
@@ -72,9 +108,6 @@ public class IOHomework {
             }
             System.out.println("Number of ', ' in the file is: " + comaNumber);
         }
-    }
 
-
-}
-
+ */
 
