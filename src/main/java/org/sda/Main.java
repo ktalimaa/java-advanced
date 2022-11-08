@@ -1,6 +1,7 @@
 package org.sda;
 
 import org.sda.model.Person;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.StringBufferInputStream;
 import java.util.Comparator;
@@ -15,7 +16,7 @@ public class Main {
 
         // LAMBDA EXPRESSION
         // Predicate
-        Person person = new Person("Kristel", "Talimaa", 26);
+        Person person = new Person("Kristel", "Talimaa", "ktalimaa", 26);
         Predicate<Person> personTest = test -> test.getAge() > 20; // lambda expression
         System.out.println(personTest.test(person));
 
@@ -46,7 +47,7 @@ public class Main {
 
 
         // OPTIONAL
-        Person person3 = new Person("Kristel", "Talimaa", 26);
+        Person person3 = new Person("Kristel", "Talimaa", "ktalimaa", 26);
         Optional<Person> optionalPerson = Optional.of(person3);     // can use Optional.of(); if person3 = null.
 
         if (optionalPerson.isEmpty()) { // does Person have a value or not
@@ -123,11 +124,28 @@ public class Main {
         carList.stream()
                 .sorted(Comparator.reverseOrder())
                 .forEach(System.out::println);
+
+
+
+        // NESTED CLASS
+        // Non-static
+        Person person4 = new Person("Kristel", "Talimaa", "ktalimaa", 26);
+        System.out.println(person4.getUsername());  // outer class method call
+
+        Person.Employee employee = person4.new Employee();  // to create non-static object, put: outer class . inner class
+        employee.username();
+        System.out.println(person4.getUsername());
+
+        // Static
+        Person person5 = new Person("Martin", "Põlluste", "polluste", 27);
+        System.out.println(person5.getUsername()); // outer class method call
+
+        Person.Customer customer = new Person.Customer();       // Difference in the object instantiation
+        customer.username(person5);
+        System.out.println(person5.getUsername());
+
+
     }
-
-
-
-
 
     // Old-school way of method definition
     private static Integer getLengthOfString(String inputString) {
@@ -137,8 +155,8 @@ public class Main {
 
     private static Person getRandomPerson() {
         // Optional<Person> optionalPerson = Optional.empty();     // if optional.empty is true, can return person2
-        Optional<Person> optionalPerson = Optional.of(new Person("Captain", "America", 30));
-        Person person2 = new Person("Martin", "Põlluste", 27); // backup substitude
+        Optional<Person> optionalPerson = Optional.of(new Person("Captain", "America", "murica", 30));
+        Person person2 = new Person("Martin", "Põlluste", "polluste",  27); // backup substitude
 
         return optionalPerson.orElse(person2);
     }
