@@ -2,8 +2,13 @@ package org.sda;
 
 import org.sda.model.Person;
 
+import java.io.StringBufferInputStream;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,11 +43,103 @@ public class Main {
         // Operator - using inbuilt class
         UnaryOperator<Integer> toSquare = i -> i * i;     // -> means implies
         System.out.println(toSquare.apply(4));  // apply() should be called always
+
+
+        // OPTIONAL
+        Person person3 = new Person("Kristel", "Talimaa", 26);
+        Optional<Person> optionalPerson = Optional.of(person3);     // can use Optional.of(); if person3 = null.
+
+        if (optionalPerson.isEmpty()) { // does Person have a value or not
+            System.out.println("Person cannot be printed.");
+        } else {
+            System.out.println(optionalPerson.get().toString());
+        }
+
+        optionalPerson.ifPresent(System.out::println);
+
+        System.out.println(getRandomPerson().toString());
+
+
+        // STREAMS
+        // Streams are used when having a list
+        List<String> carList = List.of("BMW", "Audi", "Skoda", "Toyota", "Ford");
+
+        carList.stream()
+                .findFirst()
+                .ifPresent(System.out::println);        // findFirst() -> Optional<T> (any type) -> finds random element of the list
+        carList.stream().findAny().ifPresent(System.out::println);
+
+
+        // Filter: used to apply a condition to the list and filter the list
+        List<String> filteredCars = carList.stream()
+                .filter(s -> s.length() >= 5)       // Filter returns Stream<T>
+                .collect(Collectors.toList());      // Convert Stream<T> to List<T>
+
+        // For each
+        filteredCars.forEach(s -> {
+            String prefix = "Car: " + s;
+            System.out.println(prefix);
+        });
+
+        // Map: is used to apply an operation to the all the elements in the list
+        List<Integer> carLengths = carList.stream() // map example
+                .map(String::length)
+                .toList();      // same as collect(Collectors.toList());
+
+        carLengths.forEach(System.out::println);
+        System.out.println(carLengths.size());      // counting the items in the list
+
+
+        // ALL MATCH
+        // allMatch(): Used to check if all the elements in the list matching a given condition
+        boolean isAllCarsGreaterThanFive = carList.stream()
+                .allMatch(s -> s.length() >= 5);    // checking are all the cars in the list are more than 5
+        System.out.println(isAllCarsGreaterThanFive);
+
+        // ANY MATCH
+        // anyMatch(): Used to check if at least one element in the list matches the given condition
+        boolean isAnyCarStartingWithB = carList.stream()
+                .anyMatch(s -> s.startsWith("B"));
+        System.out.println(isAnyCarStartingWithB);
+
+        // Reducing
+        // reduce(): Used to condense/reduce the list to the String/other type
+        String cars = carList.stream()
+                .reduce("", ((s, s2) -> (s.equals("") ? "" : s + ", ") + s2));      // s is like bmw, s2 is like audi. " " is empty, goes to the next value and puts comma if value exists
+        System.out.println(cars);
+
+        // Sorted
+        // sorted(): Used to sort the list in the ascending order
+        carList.stream()
+                .sorted()
+                .forEach(System.out::println);
+
+        // descending order sorting
+        carList.stream()
+                .sorted((car1, car2) -> car2.compareTo(car1))   // comparative sorting, list printed in reverse order
+                .forEach(System.out::println);
+
+        // alternative descending order sorting using comparator
+        carList.stream()
+                .sorted(Comparator.reverseOrder())
+                .forEach(System.out::println);
     }
+
+
+
+
 
     // Old-school way of method definition
     private static Integer getLengthOfString(String inputString) {
         int increment = 10;     // now here is two lines of code
         return inputString.length() + increment;
+    }
+
+    private static Person getRandomPerson() {
+        // Optional<Person> optionalPerson = Optional.empty();     // if optional.empty is true, can return person2
+        Optional<Person> optionalPerson = Optional.of(new Person("Captain", "America", 30));
+        Person person2 = new Person("Martin", "Põlluste", 27); // backup substitude
+
+        return optionalPerson.orElse(person2);
     }
 }
