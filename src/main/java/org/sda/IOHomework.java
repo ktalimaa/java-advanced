@@ -20,6 +20,7 @@ import java.util.Scanner;
  */
 
 public class IOHomework {
+
     public static void main(String[] args) throws IOException {
 
         // File reading
@@ -50,19 +51,30 @@ public class IOHomework {
         }
 
         // Counting special signs
-        int countSigns = 0;
-        char character;
-
-        File fileSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
-        Scanner inputFile = new Scanner(fileSigns);
-
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Please enter a character you want to count: ");
-        character = keyboard.nextLine().charAt(0);
+        File countSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
+        Scanner scanner = new Scanner("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
 
 
+        try {
+            (Scanner scanner = new Scanner(new FileInputStream(countSigns));
+        } catch (FileNotFoundException e) {
+        }
 
+        int starNumber = 0; // number of *'s
 
+        while (scanner.hasNext()) {
+            String character = scanner.next();
+            int index = 0;
+            char star = ',';
+            while (index < character.length()) {
+
+                if (character.charAt(index) == star) {
+                    starNumber++;
+                }
+                index++;
+            }
+            System.out.println(starNumber);
+        }
 
 
         // One word occurrence
@@ -85,6 +97,7 @@ public class IOHomework {
 }
 
 /*
+
 
 File countSigns = new File("C:\\Users\\ktali\\java-advanced\\src\\main\\resources\\loremIpsum.txt");
 
