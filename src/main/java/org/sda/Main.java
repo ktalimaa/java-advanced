@@ -1,5 +1,7 @@
 package org.sda;
 
+import org.sda.concurrency.StopWatchRunnableImpl;
+import org.sda.concurrency.StopWatchThread;
 import org.sda.model.Person;
 import org.w3c.dom.ls.LSOutput;
 
@@ -12,7 +14,7 @@ import java.util.function.*;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         // LAMBDA EXPRESSION
         // Predicate
@@ -143,6 +145,29 @@ public class Main {
         Person.Customer customer = new Person.Customer();       // Difference in the object instantiation
         customer.username(person5);
         System.out.println(person5.getUsername());
+
+
+        // CONCURRENCY
+        System.out.println("Main is running after nested classes...");
+        Thread.sleep(5000);     // 5000 = 5 sec     // only when tread is running, then it is possible to make it sleep
+        System.out.println("Thread test ended!");
+
+        // Stop-watch thread
+        StopWatchThread stopWatchThread = new StopWatchThread("Stop watch nr 1");
+        StopWatchThread stopWatchThread2 = new StopWatchThread("Stop watch nr 2");
+        stopWatchThread.start();       // starting stop watch thread
+        stopWatchThread2.start();       // starting the second stop watch       // multithreading - different instances running on same thread
+        System.out.println("Main thread starts running...");
+        Thread.sleep(5000);         // this is for main method (makes main sleep)
+        System.out.println("Main thread is still running...");
+        Thread.sleep(3000);
+        System.out.println("Main thread ended running!");
+
+        // Runnable
+        System.out.println("Runnable StopWatch started...");
+        Thread stopWatchRunnableThread = new Thread(new StopWatchRunnableImpl());
+        stopWatchRunnableThread.start();
+
 
 
     }
