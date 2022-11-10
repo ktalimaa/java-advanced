@@ -59,9 +59,9 @@ public class StreamsHomework {
         nameList.stream().map(name -> name.toUpperCase()).forEach(name -> System.out.println(name + " "));
 
         // Remove first and last letter, sort and print names.
-        // System.out.println("Sorting and printing names after removing first and last letter:");
-        // List<String> removeChar = Arrays.asList("John", "Sarah", "Mark", "Tyla", "Ellisha", "Eamonn");
-        // removeChar.stream().map(name -> removeChar.stream().reduce(0)).forEach(name -> System.out.println(name + " "));
+        System.out.println("Sorting and printing names after removing first and last letter:");
+        List<String> removeChar = Arrays.asList("John", "Sarah", "Mark", "Tyla", "Ellisha", "Eamonn");
+        removeChar.stream().map(name -> name.substring(1, name.length() - 1)).sorted().forEach(name -> System.out.println(name + " "));
 
         // Sort backwards by implementing reverse Comparator and using lambda expression.
         System.out.println("List of names sorted backwards:");
