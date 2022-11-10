@@ -2,6 +2,8 @@ package org.sda;
 
 import org.sda.concurrency.StopWatchRunnableImpl;
 import org.sda.concurrency.StopWatchThread;
+import org.sda.concurrency.synchronization.ShoppingCart;
+import org.sda.concurrency.synchronization.ShoppingCartThread;
 import org.sda.model.Person;
 import org.w3c.dom.ls.LSOutput;
 
@@ -128,7 +130,6 @@ public class Main {
                 .forEach(System.out::println);
 
 
-
         // NESTED CLASS
         // Non-static
         Person person4 = new Person("Kristel", "Talimaa", "ktalimaa", 26);
@@ -169,6 +170,15 @@ public class Main {
         stopWatchRunnableThread.start();
 
 
+        Thread.sleep(10000);
+        // Synchronization (shoppingCart example)
+        ShoppingCart shoppingCart = new ShoppingCart(200);
+        ShoppingCartThread shoppingCartThread1 = new ShoppingCartThread(shoppingCart);
+        ShoppingCartThread shoppingCartThread2 = new ShoppingCartThread(shoppingCart);
+        shoppingCartThread1.start();
+        shoppingCartThread2.start();
+        System.out.println("Number of products: " + shoppingCart.getNumberOfProducts());
+
 
     }
 
@@ -181,7 +191,7 @@ public class Main {
     private static Person getRandomPerson() {
         // Optional<Person> optionalPerson = Optional.empty();     // if optional.empty is true, can return person2
         Optional<Person> optionalPerson = Optional.of(new Person("Captain", "America", "murica", 30));
-        Person person2 = new Person("Martin", "Põlluste", "polluste",  27); // backup substitude
+        Person person2 = new Person("Martin", "Põlluste", "polluste", 27); // backup substitude
 
         return optionalPerson.orElse(person2);
     }
