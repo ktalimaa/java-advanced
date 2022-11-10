@@ -1,5 +1,7 @@
 package org.sda;
 
+import org.w3c.dom.NameList;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -57,12 +59,9 @@ public class StreamsHomework {
         nameList.stream().map(name -> name.toUpperCase()).forEach(name -> System.out.println(name + " "));
 
         // Remove first and last letter, sort and print names.
-        System.out.println("Sorting and printing names after removing first and last letter:");
-
-
-
-
-
+        // System.out.println("Sorting and printing names after removing first and last letter:");
+        // List<String> removeChar = Arrays.asList("John", "Sarah", "Mark", "Tyla", "Ellisha", "Eamonn");
+        // removeChar.stream().map(name -> removeChar.stream().reduce(0)).forEach(name -> System.out.println(name + " "));
 
         // Sort backwards by implementing reverse Comparator and using lambda expression.
         System.out.println("List of names sorted backwards:");
@@ -75,8 +74,6 @@ public class StreamsHomework {
                 .sorted(Comparator.reverseOrder())
                 .forEach(System.out::println);
 
-
-
-
+        // How to use lambda here?
     }
 }
