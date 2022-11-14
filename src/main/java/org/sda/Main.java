@@ -1,8 +1,14 @@
 package org.sda;
 
+import org.sda.builders.Weapon;
+import org.sda.builders.WeaponBuilder;
 import org.sda.singleton.Database;
 import org.sda.singleton.exercises.Computer;
 import org.sda.singleton.exercises.Engine;
+
+import java.nio.file.Watchable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,7 +29,6 @@ public class Main {
         database.addNumber(2);
         database.addNumber(3);
         System.out.println(Database.getInstance().getNumbers().size());     // should return 3
-
 
 
         // Exercise: Create an eager singleton class called Engine
@@ -48,8 +53,18 @@ public class Main {
         Computer computer = Computer.getInstance();
         System.out.println(computer.getComputerState());
 
+        // Weapon
+        // StringBuilder stringBuilder = new StringBuilder().append("Hello").append(" world!");
+        // System.out.println(stringBuilder);      // returns as one item
 
+        Weapon ak47 = new WeaponBuilder()       // won't be in same order like Weapon class
+                .withType("Gun")
+                .withName("AK-47")
+                .withPerks(new ArrayList<>())
+                .withDamage(10)
+                .withDurability(10000)
+                .build();
 
-
+        System.out.println(ak47.getDamage());
     }
 }
