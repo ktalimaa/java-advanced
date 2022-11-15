@@ -2,6 +2,10 @@ package org.sda;
 
 import org.sda.builders.Weapon;
 import org.sda.builders.WeaponBuilder;
+import org.sda.factory.Game;
+import org.sda.factory.GameFactory;
+import org.sda.factory.HaloGameCreator;
+import org.sda.factory.ScrabbleGameCreator;
 import org.sda.singleton.Database;
 import org.sda.singleton.exercises.Computer;
 import org.sda.singleton.exercises.Engine;
@@ -66,5 +70,24 @@ public class Main {
                 .build();
 
         System.out.println(ak47.getDamage());
+
+
+        // FACTORY EXAMPLE
+        String type = "Board";      // checking the game, could be "PC" too
+
+        GameFactory factory;
+        if (type.equals("PC")) {
+            factory = new HaloGameCreator();
+        } else if (type.equals("Board")) {
+            factory = new ScrabbleGameCreator();
+        } else {
+            throw new RuntimeException("Unknown game type.");
+        }
+
+        Game game = factory.create();
+        System.out.println(game);
+
+
+
     }
 }
