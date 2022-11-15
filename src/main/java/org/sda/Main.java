@@ -1,5 +1,8 @@
 package org.sda;
 
+import org.sda.abstractfactory.Car;
+import org.sda.abstractfactory.CarFactory;
+import org.sda.abstractfactory.FactoryProvider;
 import org.sda.builders.Weapon;
 import org.sda.builders.WeaponBuilder;
 import org.sda.factory.Game;
@@ -86,6 +89,17 @@ public class Main {
 
         Game game = factory.create();
         System.out.println(game);
+
+
+        // ABSTRACT FACTORY
+        String typeAbstractFactory = "Lexus";
+        CarFactory factoryAbstract = new FactoryProvider().createFactory(typeAbstractFactory);
+        Car sedan = factoryAbstract.createSedan();
+
+        System.out.println(sedan);
+
+
+
 
 
 
