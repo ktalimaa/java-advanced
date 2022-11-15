@@ -12,6 +12,7 @@ import org.sda.factory.ScrabbleGameCreator;
 import org.sda.singleton.Database;
 import org.sda.singleton.exercises.Computer;
 import org.sda.singleton.exercises.Engine;
+import org.sda.singleton.exercises.Students;
 
 import java.nio.file.Watchable;
 import java.util.ArrayList;
@@ -94,9 +95,11 @@ public class Main {
         // ABSTRACT FACTORY
         String typeAbstractFactory = "Lexus";
         CarFactory factoryAbstract = new FactoryProvider().createFactory(typeAbstractFactory);
-        Car sedan = factoryAbstract.createSedan();
+        Car sedan = factoryAbstract.createSedan();      // returns lexus sedan object, could be combi too
 
         System.out.println(sedan);
+
+        // STUDENTS EXERCISE
 
 
 
