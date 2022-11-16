@@ -1,4 +1,4 @@
-package org.sda.builders;
+package org.sda.builders.exercise;
 
 /**
  * Create a User class having the following fields:

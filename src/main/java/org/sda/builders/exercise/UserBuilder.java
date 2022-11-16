@@ -1,4 +1,4 @@
-package org.sda.builders;
+package org.sda.builders.exercise;
 
 public class UserBuilder {
     private String firstName;

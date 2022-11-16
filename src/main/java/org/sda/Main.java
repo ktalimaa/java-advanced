@@ -3,8 +3,12 @@ package org.sda;
 import org.sda.abstractfactory.Car;
 import org.sda.abstractfactory.CarFactory;
 import org.sda.abstractfactory.FactoryProvider;
-import org.sda.builders.User;
-import org.sda.builders.UserBuilder;
+import org.sda.adapter.*;
+import org.sda.adapter.exercise.GameAdapter;
+import org.sda.adapter.exercise.GameObject;
+import org.sda.adapter.exercise.VideoGameExercise;
+import org.sda.builders.exercise.User;
+import org.sda.builders.exercise.UserBuilder;
 import org.sda.builders.Weapon;
 import org.sda.builders.WeaponBuilder;
 import org.sda.factory.Game;
@@ -15,6 +19,7 @@ import org.sda.singleton.Database;
 import org.sda.singleton.exercises.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -114,5 +119,27 @@ public class Main {
         System.out.println(user2);
 
 
+        // ADAPTER
+        Student ken = new PupilAdapter(new Pupil("Ken", "Derrick", "ken@gmail.com", 20, Arrays.asList(2, 4, 5)));       // new instance
+        System.out.println(ken.getFullName());
+        System.out.println(ken.isAdult());
+
+        // VIDEO GAME EXERCISE
+        Game uncharted = new GameAdapter(new VideoGameExercise("Uncharted 4", 18, 8, 45));
+        System.out.println(uncharted.getName());
+        System.out.println(uncharted.canBePlayedRemotely());
+
+
     }
 }
+
+
+    /*
+
+    My version:
+
+    GameObject cod = new GameAdapter(new VideoGameExercise("Call of Duty", 18, 8, 45));
+        System.out.println(cod.getAllInformation());
+        System.out.println(cod.canBePlayedRemotely());
+
+ */
