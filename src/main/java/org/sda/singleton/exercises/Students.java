@@ -63,6 +63,7 @@ public class Students {
         return instance;
     }
 
+}
 
    /*
 
@@ -81,17 +82,6 @@ public class Students {
         return INSTANCE;
     }
 
-
-
-    */
-
-
-
-}
-
-
-
-    /*
 
      private static Students instance;
     private static boolean isAdded = false;

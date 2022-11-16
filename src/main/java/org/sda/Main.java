@@ -3,6 +3,8 @@ package org.sda;
 import org.sda.abstractfactory.Car;
 import org.sda.abstractfactory.CarFactory;
 import org.sda.abstractfactory.FactoryProvider;
+import org.sda.builders.User;
+import org.sda.builders.UserBuilder;
 import org.sda.builders.Weapon;
 import org.sda.builders.WeaponBuilder;
 import org.sda.factory.Game;
@@ -10,13 +12,9 @@ import org.sda.factory.GameFactory;
 import org.sda.factory.HaloGameCreator;
 import org.sda.factory.ScrabbleGameCreator;
 import org.sda.singleton.Database;
-import org.sda.singleton.exercises.Computer;
-import org.sda.singleton.exercises.Engine;
-import org.sda.singleton.exercises.Students;
+import org.sda.singleton.exercises.*;
 
-import java.nio.file.Watchable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -99,11 +97,21 @@ public class Main {
 
         System.out.println(sedan);
 
-        // STUDENTS EXERCISE
 
+        // USER EXERCISE
+        User user = new UserBuilder()
+                .withFirstName("Kristel")
+                .withLastName("Talimaa")
+                .withAge(26)
+                .withEmail("kristeltalimaa@gmail.com")
+                .withPhoneNumber("+372 555 5555")
+                .withAddress("Pärnu")
+                .build();
 
+        System.out.println("Users full name is: " + user.getFirstName() + " " + user.getLastName() + ". User is " + user.getAge() + " years old and lives in " + user.getAddress() + ".");
 
-
+        User user2 = new User("Martin", "Põlluste", 27, "martinpolluste@gmail.com", "+372 555 5555", "Pärnu");
+        System.out.println(user2);
 
 
     }
