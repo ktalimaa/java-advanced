@@ -3,20 +3,24 @@ package org.sda;
 import org.sda.abstractfactory.Car;
 import org.sda.abstractfactory.CarFactory;
 import org.sda.abstractfactory.FactoryProvider;
-import org.sda.adapter.*;
+import org.sda.adapter.Pupil;
+import org.sda.adapter.PupilAdapter;
+import org.sda.adapter.Student;
 import org.sda.adapter.exercise.GameAdapter;
-import org.sda.adapter.exercise.GameObject;
 import org.sda.adapter.exercise.VideoGameExercise;
-import org.sda.builders.exercise.User;
-import org.sda.builders.exercise.UserBuilder;
 import org.sda.builders.Weapon;
 import org.sda.builders.WeaponBuilder;
+import org.sda.builders.exercise.Employee;
+import org.sda.builders.exercise.EmployeeBuilder;
+import org.sda.builders.exercise.User;
+import org.sda.builders.exercise.UserBuilder;
 import org.sda.factory.Game;
 import org.sda.factory.GameFactory;
 import org.sda.factory.HaloGameCreator;
 import org.sda.factory.ScrabbleGameCreator;
 import org.sda.singleton.Database;
-import org.sda.singleton.exercises.*;
+import org.sda.singleton.exercises.Computer;
+import org.sda.singleton.exercises.Engine;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -128,7 +132,6 @@ public class Main {
         Game uncharted = new GameAdapter(new VideoGameExercise("Uncharted 4", 18, 8, 45));
         System.out.println(uncharted.getName());
         System.out.println(uncharted.canBePlayedRemotely());
-
 
     }
 }
