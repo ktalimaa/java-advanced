@@ -44,10 +44,76 @@ public class Notes {
     the  data from the source class (the object we are transforming).
 
 
+    BEST PRACTICES
+
+    CLEAN CODE is a term that refers to code that is:
+    - elegant - simple, straightforward and easy to read.
+    - organized -
+    - maintained regularly - up to date
+    - written such that passes all necessary tests
+    - no duplicated code
+    - no unused code, i.e. unused classes, unused methods, unused variables
+
+    SOME CONVENTIONS
+    - Naming:
+    - classes - They should use camelcasing but must start with a capital letter
+    - subsequent words in the class name will also start with a capital letter, e.g. Car or CarEngine
+
+    - Methods - They should start with verb, and they should start with small or lower case letter, but still use camelcasing
+    - e.g. getWidth(), startEngine() - correct
+    - e.g. width(), Width(), GetWidth() - incorrect
+
+    - Variables - They are similar to methods (in the sense that they also start with lower case and use camelcasing),
+    - but they don't need to start with a verb.
+    - Since variables describe the state of a value, they are typically nouns.
+    - e.g. width, height, size, name, firstName, lastName - correct
+    - e.g. Width, wiDth - incorrect
+
+    - Method parameters
+    - Your methods should only carry out only one unit on an action, i.e. your methods should not do more than one thing,
+    - and they should only have a small number of parameters. Ideally, it shouldn't be more than 20 lines.
 
 
+    PRINCIPLES
+    DRY - Don't Repeat Yourself
+    KISS - Keep It Simple Stupid
+    YAGNI - You Aren't Gonna Need It
+
+
+    MANIFESTO for software craftsmanship
+    Rules to note:
+    - You should build software that is not just working, but also well-crafted (it needs to follow principles of clean code).
+    - You should not just respond to change, but also build value.
+    - We are not just individuals, but a community of professionals.
+    - We don't just engage in customer collaboration, but also productive partnership.
+
+
+    SOLID - is a set of software engineering principles, that every good programmer should know and follow when creating a code.
+    S - Single Responsibility Principle
+    O - Open Close Principle
+    L - Liskov's Substitution Principle
+    I - Interface Segregation Principle
+    D - Dependency Inversion Principle
+
+    S - Single Responsibility Principle - We don't want one class doing more than one thing, and we
+    don't want multiple classes doing the same thing.
+
+    O - Open Close Principle - This is mostly talking about encapsulation. We want to be able to decide what changes
+    classes outside of the object can make to our object.
+
+    L - Liskov's Substitution Principle - This says that you should be able to create a substitute the type of the object
+    with its derived type.
+
+    I - Interface Segregation Principle - This says, that interface should not contain too many methods,
+    instead break the interface into smaller interfaces and group related methods in them.
+
+    D - Dependency Inversion Principle - This is referring to the ability to pass in dependencies, that your class
+    or object needs to function from outside the class.
+
+    // D - Dependency Inversion Principle
+    // Square square = new Square(4);
+    // Rectangle shape = new SquareAdapter(new Square(square)); -> passing the square as a dependency
 
      */
-
 
 }
