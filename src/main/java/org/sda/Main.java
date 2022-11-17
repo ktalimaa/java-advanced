@@ -6,8 +6,7 @@ import org.sda.abstractfactory.FactoryProvider;
 import org.sda.adapter.Pupil;
 import org.sda.adapter.PupilAdapter;
 import org.sda.adapter.Student;
-import org.sda.adapter.exercise.GameAdapter;
-import org.sda.adapter.exercise.VideoGameExercise;
+import org.sda.adapter.exercise.*;
 import org.sda.builders.Weapon;
 import org.sda.builders.WeaponBuilder;
 import org.sda.builders.exercise.Employee;
@@ -132,8 +131,22 @@ public class Main {
         Game uncharted = new GameAdapter(new VideoGameExercise("Uncharted 4", 18, 8, 45));
         System.out.println(uncharted.getName());
         System.out.println(uncharted.canBePlayedRemotely());
+        System.out.println(uncharted.getValue());
+
+        // RECTANGLE EXERCISE
+        Rectangle shape = new SquareAdapter(new Square(4));
+        System.out.println(shape.getWidth());
+        System.out.println(shape.getArea());
 
     }
+
+
+
+
+
+
+
+
 }
 
 

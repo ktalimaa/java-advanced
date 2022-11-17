@@ -11,4 +11,8 @@ public interface Game {
 
     boolean canBePlayedRemotely();
 
+    default int getValue() {
+        return 5;
+    }
 }
+
