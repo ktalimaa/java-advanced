@@ -21,7 +21,7 @@ public class ConcurrencyExercise {
 
     String value = "SDA Java course!";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         // a) Inside the run method display "Hello!"
         System.out.println("Runnable 'Hello!' started...");
@@ -33,7 +33,19 @@ public class ConcurrencyExercise {
         System.out.println(object.value);
 
         // c) Start the thread receiving the created object as a parameter (new Thread (<object>).start())
-
+        // d) Create several objects, run separate thread for each of them
+        // e) Add the constructor to the created class, that accepts the int value
+        ThreadForHomework example = new ThreadForHomework("Run nr 1");
+        ThreadForHomework example2 = new ThreadForHomework("Run nr 2");
+        ThreadForHomework example3 = new ThreadForHomework("Run nr 3");
+        example.start();
+        example2.start();
+        example3.start();
+        System.out.println("Main thread starts running....");
+        Thread.sleep(3000);
+        System.out.println("Main thread is still running....");
+        Thread.sleep(2000);
+        System.out.println("Main thread ended running!");
 
 
 
